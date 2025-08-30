@@ -16,6 +16,7 @@ print("x < y : ", z)
 z = x <= y
 print("x <= y : ", z)
 
+#사칙연산
 z = x + y
 print("x + y", z)
 z = x - y
@@ -24,6 +25,12 @@ z = x * y
 print("x * y", z)
 z = x / y
 print("x / y", z)
+
+z = 5 + x * 3 # 곱셈이 덧셈보다 우선순위가 높음
+print("5 + x * 3 :", z)
+
+z = (5 + x) * 3 # 우선순위가 낮은 연산을 먼저 하고 싶으면 괄호로 묶어주기
+print("(5 + x) * 3 :", z)
 
 z = x % y
 print("x % y", z)
@@ -58,7 +65,7 @@ print("array_x * 2 : ", array_z)
 array_z = array_x * array_y[0] # 해당 인덱스에 있는 요소가 정수형일때만 가능
 print("array_x * array_y[0] : ", array_z)
 
-#논리연산자
+#논리 연산자
 
 report_card = {
     "국어": 1,

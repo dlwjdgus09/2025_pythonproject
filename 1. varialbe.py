@@ -1,31 +1,62 @@
-# x = "안녕"
-# print(x)
-# print(type(x))
-#
-# x = 3
-# print(x)
-# print(type(x))
-#
-# x = 3 + 5
-# print(x)
-# print(type(x))
-#
-# x = 3 == 5
-# print(x)
-# print(type(x))
-#
-# x = True
-# print(x)
-# print(type(x))
+x = "안녕"
+print(x)
+print(type(x))
 
-# x = [1,2,3,4,5,5,6,"good morning",66,7] #list
-# print(x)
-# print(type(x))
-#
-# x = {'a' : 1, 'b' : 5} #dictionary  key : value
-# print(x)
-# print(x['a'])
-# print(type(x))
+x = 3
+print(x)
+print(type(x))
+
+x = 3 + 5
+print(x)
+print(type(x))
+
+x = 3 == 5
+print(x)
+print(type(x))
+
+x = True
+print(x)
+print(type(x))
+
+x = [1,2,3,4,5] #list
+print(x)
+print(x[0])
+print(x[3])
+print(type(x))
+
+x = x * 2
+print("x * 2 :", x)
+x = [1,2,3,4,5]
+# slicing
+print(x[2:5]) # [start_index : end_index+1]
+print("append===============================================================================================================================================")
+x.append(7)
+print(x)
+x.insert(1, 9)
+print(x)
+x.remove(1) # index가 아닌 값을 지우는 함수
+print(x)
+print("9->6=================================================================================================================================================")
+x[0] = 6
+print(x)
+
+# 참조할 수 없는 위치를 참조했을 때 (배열 길이 이상)
+# IndexError : list assignment index out of range
+# x[7] = 1
+
+print("배열의 길이========================================================================================================================================================")
+print(len(x))
+
+print("배열의 마지막 인덱스========================================================================================================================================================")
+print(len(x)-1)
+
+
+
+
+x = {'a' : 100, 'b' : 200} #dictionary  key : value
+print(x)
+print(x['a'])
+print(type(x))
 example = {
     'python': [True, False, True, True, True, True, True, False, False, True],
     'java': [True, False, False, True, True, True, False, False, False, True],

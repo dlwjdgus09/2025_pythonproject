@@ -57,6 +57,23 @@ x = {'a' : 100, 'b' : 200} #dictionary  key : value
 print(x)
 print(x['a'])
 print(type(x))
+
+x['c'] = 10
+print(x)
+print(x['c'])
+# print(x['d']) # KeyError: 'd'
+
+del x['a']
+print(x)
+
+print(x.keys())
+print(x.values())
+print(x.items())
+
+print(x.clear()) # 딕셔너리 지우기
+print(x)
+
+# 정오표
 example = {
     'python': [True, False, True, True, True, True, True, False, False, True],
     'java': [True, False, False, True, True, True, False, False, False, True],
@@ -67,6 +84,7 @@ print(example)
 print(example['python'])
 print(example['python'][1])
 
+# 문제 답안
 python_description = [
     {
         'answer': 1,

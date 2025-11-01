@@ -16,9 +16,37 @@
 #     if user_input.lower() == "z":
 #         break
 
+# 짝수만 출력
 input_number = int(input("숫자를 입력하세요."))
-index = 2
+index = 1
+while index <= input_number:
+    if input_number % 2 == 0:
+        print(index)
+    index = index + 1
+
+# 피보나치 수열 출력
+print("피보나치 수열 with list")
+list = [1,1]
 
 while index <= input_number:
-    print(index)
-    index = index + 2
+    print(list[-1])
+    list.append(list[-1] + list[-2])
+
+print("피보나치 수열 without list")
+
+a = 1
+b = 1
+c = 1
+
+while c <= input_number:
+    c = a + b
+    print(c)
+    a = b
+    b = c
+
+# last_item = list[len(list)-1]
+#
+# while list[len(list)-1] <= input_number:
+#     print(last_item)
+#     list.append(last_item + list[len(list)-2])
+#     last_item = list[len(list)-1]

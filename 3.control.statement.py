@@ -1,4 +1,4 @@
-score = int(input("점수를 입력하세요.")
+score = int(input("점수를 입력하세요."))
 
 if score > 100 or score < 0:
     print("정상적인 점수 범위가 아닙니다.")
@@ -9,3 +9,5 @@ else:
         print("재시험 응시가 필요합니다.")
     else:
         print("불합격입니다.")
+
+

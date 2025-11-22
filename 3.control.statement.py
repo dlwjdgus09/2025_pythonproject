@@ -78,9 +78,25 @@ a = [1, 3, 2, 4, 5, 3, 1, 2, 3, 4]
 correct_answer = [1, 3, 2, 4, 5, 3, 1, 2, 3, 4]
 
 # 학생의 점수 구하기
+#풀이1
 score = 0
 for (student, correct) in zip(a, correct_answer):
-    if test == correct_answer:
+    print(student, '/', correct)
+    if student == correct:
         score = score + 10
-    print(student , '/', correct)
-    print(score)
+print(score)
+
+#풀이2
+# score = 100
+# for (student, correct) in zip(a, correct_answer):
+#     print(student, '/', correct)
+#     if student != correct:
+#         score = score - 10
+# print(score)
+#
+# #풀이3
+# score = 0
+# for i in range(len(a)):
+#     if a[i] == correct_answer[i]:
+#         score = score + 10
+# print(score)

@@ -1,4 +1,3 @@
-
 def print_score():
     score = int(input("점수를 입력하세요."))
 
@@ -59,9 +58,6 @@ def repeat_function():
         print_score()
         i = i + 1
 
-# last_item = list[len(list)-1]
-#
-# while list[len(list)-1] <= input_number:
-#     print(last_item)
-#     list.append(last_item + list[len(list)-2])
-#     last_item = list[len(list)-1]
+# 함수 호출 방법
+# repeat_function()
+

@@ -60,4 +60,27 @@ def repeat_function():
 
 # 함수 호출 방법
 # repeat_function()
+#
+# arr = ['AA', 'BB', 'CC', 'DD']
+#
+# for i in arr:
+#     print(i)
 
+# 수학
+test = [{'answer': [1, 3, 2, 4, 5, 3, 1, 2, 3, 4]},
+ {'answer': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]},
+ {'answer': [1, 5, 3, 4, 5, 1, 2, 3, 1, 2]},
+ {'answer': [4, 3, 4, 4, 5, 3, 1, 2, 2, 4]},
+ {'answer': [1, 3, 4, 4, 5, 3, 1, 2, 3, 2]},
+ {'answer': [1, 3, 5, 4, 5, 3, 1, 2, 3, 4]},]
+
+a = [1, 3, 2, 4, 5, 3, 1, 2, 3, 4]
+correct_answer = [1, 3, 2, 4, 5, 3, 1, 2, 3, 4]
+
+# 학생의 점수 구하기
+score = 0
+for (student, correct) in zip(a, correct_answer):
+    if test == correct_answer:
+        score = score + 10
+    print(student , '/', correct)
+    print(score)

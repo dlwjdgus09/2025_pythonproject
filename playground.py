@@ -19,20 +19,12 @@
 #     print_times_table(int(user_input))
 
     # test
-#
-# A. UP DOWN 게임
-# random 함수로 값을 초기화하고
-# 사용자가 맞추는 게임
-# result 가 50 인데 사용자가 36을 입력했다면 UP
-# result 가 50인데 사용자가 70을 입력했다면 DOWN
-# 성공했을때 함수가 종료.
-#
-# * 성공의 기준
-# - 사용자가 답안을 맞춰야함. (필수)
-# + 5번 이내에 맞추는것 (선택)
 import random
+import time
 
 def updown():
+    # random.randrange ( n, m )   n <= result < m
+    print("WELCOME TO UP DOWN")
     result = random.randrange(1, 100)
     while True:
         user_input = int(input("값을 입력하세요 : "))
@@ -44,7 +36,55 @@ def updown():
                 print("up")
             else:
                 print("down")
-updown()
+
+
+
+def quiz():
+    print("WELCOME TO QUIZ!")
+    en_dict = {"apple", "banana", "grape", "melon", "orange", "watermelon", "peach", "cherry", "strawberry", "kiwi"}
+    ko_dict = {"사과", "바나나", "포도", "멜론", "오렌지", "수박", "복숭아", "체리", "딸기", "키위"}
+    score = 0
+    while True:
+        print(random.random(en_dict, ko_dict))
+        user_input = str(input("값을 입력하세요 : "))
+
+def stop_watch():
+    print("WELCOME TO UP STOPWATCH")
+    # random 초를 제공하면 ex) 7초
+    start = time.time()
+
+
+
+while True:
+    print('''
+    ================메뉴================
+    A. Up & Down 게임
+    B. 영어 낱말 맞추기
+    C. Stop watch 게임
+    Z. 프로그램 종료
+    ====================================
+    ''')
+    user_input = input("값을 입력하세요 : ")
+
+    if user_input.lower() == "a":
+        updown()
+
+    elif user_input.lower() == "b":
+        quiz()
+    elif user_input.lower() == "c":
+        stop_watch()
+    elif user_input.lower() == "z":
+        break
+# A. UP DOWN 게임
+# random 함수로 값을 초기화하고
+# 사용자가 맞추는 게임
+# result 가 50 인데 사용자가 36을 입력했다면 UP
+# result 가 50인데 사용자가 70을 입력했다면 DOWN
+# 성공했을때 함수가 종료.
+#
+# * 성공의 기준
+# - 사용자가 답안을 맞춰야함. (필수)
+# + 5번 이내에 맞추는것 (선택)
 
 
 # B : 영어 단B. 영어 단어 퀴즈
@@ -59,3 +99,4 @@ updown()
 # 3. 포도
 # 4. 멜론
 # 번호가 맞을때 10점이 추가
+

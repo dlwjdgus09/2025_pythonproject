@@ -41,12 +41,24 @@ def updown():
 
 def quiz():
     print("WELCOME TO QUIZ!")
-    en_dict = {"apple", "banana", "grape", "melon", "orange", "watermelon", "peach", "cherry", "strawberry", "kiwi"}
-    ko_dict = {"사과", "바나나", "포도", "멜론", "오렌지", "수박", "복숭아", "체리", "딸기", "키위"}
+    dict = {
+        "apple" : "사과",
+        "banana" : "바나나",
+        "grape" : "포도",
+        "melon" : "멜론",
+        "orange" : "오렌지",
+        "watermelon" : "수박",
+        "peach" : "복숭아",
+        "cherry" : "체리" ,
+        "strawberry" : "딸기",
+        "kiwi" : "키위"
+    }
     score = 0
-    while True:
-        print()
-        user_input = str(input("답을 입력하세요 : "))
+    for i in range(10):
+        quest = random.randrange(0, 10)
+        i = dict[quest]
+        user_input = str(input("다음 단어의 뜻을 쓰세요(", i,") : "))
+
 
 def stop_watch():
     print("WELCOME TO STOPWATCH")

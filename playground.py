@@ -45,13 +45,22 @@ def quiz():
     ko_dict = {"사과", "바나나", "포도", "멜론", "오렌지", "수박", "복숭아", "체리", "딸기", "키위"}
     score = 0
     while True:
-        print(random.random(en_dict, ko_dict))
-        user_input = str(input("값을 입력하세요 : "))
+        print()
+        user_input = str(input("답을 입력하세요 : "))
 
 def stop_watch():
-    print("WELCOME TO UP STOPWATCH")
+    print("WELCOME TO STOPWATCH")
     # random 초를 제공하면 ex) 7초
     start = time.time()
+    print("시작하고 7초 후에 c키를 누르세요")
+    user_input = str(input("c키를 누르세요 : "))
+    end = time.time()
+    if user_input == "c" :
+        print(end-start)
+        if 6.7<=end-start<=7.3:
+            print("성공입니다!")
+        else:
+            print("실패하셨습니다.")
 
 
 

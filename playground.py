@@ -70,20 +70,31 @@ def choice_answer_quiz():
     print("객관식 문제")
     quest = random.randrange(0, len(word_array))
     word = word_array[quest]
-    answer = input(f"다음 중 {word['en']} 의 뜻으로 가장 적절한 것은?")
+
     choice_correct = quest
     choice_falses = []
-    while len(choice_falses) <=3:
+    while len(choice_falses) <3:
         choice_false = random.randrange(0, len(word_array))
         if choice_false == choice_correct:
             continue
         if choice_false in choice_falses:
             continue
-        choice_falses.append(choice_false)\
+        choice_falses.append(choice_false)
 
     choices = [choice_correct] + choice_falses
+    random.shuffle(choices)
 
-    print()
+    print(
+        "1.", choices[0], "\n",
+        "2.", choices[1], "\n",
+        "3.", choices[2], "\n",
+        "4.", choices[3]
+    )
+    answer = input(f"다음 중 {word['en']} 의 뜻으로 가장 적절한 것은?")
+    if answer == choices[choice_correct]:
+        print("정답!")
+    else:
+        print("오답! 정답은 ", choices[choice_correct])
 
 def stop_watch():
     print("WELCOME TO STOPWATCH")
@@ -116,7 +127,7 @@ while True:
         updown()
 
     elif user_input.lower() == "b":
-        quiz()
+        choice_answer_quiz()
     elif user_input.lower() == "c":
         stop_watch()
     elif user_input.lower() == "z":

@@ -1,11 +1,8 @@
 
 import random
 
-
-def upgrade_weapon(current_lv):
-    weapon_level = 0
-
-    upgrade_rates = [
+weapon_level = 0
+upgrade_rates = [
         {"up": 70, "keep": 30, "down": 0, "break": 0},
         {"up": 60, "keep": 25, "down": 10, "break": 5},
         {"up": 50, "keep": 30, "down": 15, "break": 5},
@@ -18,6 +15,10 @@ def upgrade_weapon(current_lv):
         {"up": 15, "keep": 30, "down": 30, "break": 25},
         {"up": 0, "keep": 100, "down": 0, "break": 0}
     ]
+
+def upgrade_weapon(current_lv):
+
+
 
     ran_num = random.randint(0, 99)
     rate = upgrade_rates[weapon_level]

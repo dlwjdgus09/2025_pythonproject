@@ -1,4 +1,3 @@
-
 import random
 
 weapon_level = 0
@@ -21,6 +20,8 @@ def upgrade_weapon(current_lv):
 
     ran_num = random.randint(0, 99)
     rate = upgrade_rates[current_lv]
+    print(rate)
+    print(ran_num)
     if 1<= current_lv <=10:
         if ran_num < rate["up"]:
             ran_num = "up"
@@ -54,7 +55,6 @@ def upgrade_weapon(current_lv):
         print("현재 무기 레벨 :", current_lv)
     else :
         print("더 이상 업그레이드가 불가능합니다")
-
     return current_lv
 
 print("게임에 오신 것을 환영합니다!")

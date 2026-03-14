@@ -57,8 +57,47 @@ def upgrade_weapon(current_lv):
         print("더 이상 업그레이드가 불가능합니다")
     return current_lv
 
+boss_level = 0
+boss_names = ["슬라임", "좀비", "고블린", "스켈레톤", "오크", "골렘", "웨어울프", "뱀파이어", "히드라", "데몬", "드래곤"]
+is_dragon_slayer = False
+
+def boss(current_boss):
+    level_diff = weapon_level - current_boss
+    if level_diff <= -3:
+        win_rate = 0
+    elif level_diff == -2 :
+        win_rate = 20
+    elif level_diff == -1:
+        win_rate = 30
+    elif level_diff == 0:
+        win_rate = 50
+    elif level_diff == 1:
+        win_rate = 70
+    elif level_diff == 2:
+        win_rate = 90
+    else:
+        win_rate = 100
+
+    ran_num = random.randint(0, 99)
+    cur_bos_nam = boss_names[current_boss]
+    print(level_diff)
+    print(cur_bos_nam)
+    if ran_num < win_rate:
+        current_boss = current_boss + 1
+        print("보스 처치 성공!")
+    else:
+        current_boss = current_boss
+        print("처참하게 패배했습니다...")
+    return current_boss
+if boss_level == 10:
+    print("축하합니다! 모든 보스를 제압했습니다!")
+    is_dragon_slayer = True
+
 print("게임에 오신 것을 환영합니다!")
 while True:
+    if is_dragon_slayer:
+        print("[드래곤 처치자] 전설의 용사님, 환영합니다!")
+    print("2. 보스 도전")
     print("1. 무기 강화")
     print("0. 종료하기")
     choice = input("숫자를 입력하세요 (0을 입력하면 종료):")
@@ -67,5 +106,7 @@ while True:
         break
     elif choice == "1":
         weapon_level = upgrade_weapon(weapon_level)
+    elif choice == "2":
+        boss_level = boss(boss_level)
     else:
         break

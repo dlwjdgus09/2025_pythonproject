@@ -16,33 +16,33 @@ upgrade_rates = [
         {"up": 0, "keep": 100, "down": 0, "break": 0}
     ]
 
-def upgrade_weapon(weapon_level):
+def upgrade_weapon(current_lv):
 
 
     ran_num = random.randint(0, 99)
-    rate = upgrade_rates[weapon_level]
-    if 1<= weapon_level <=10:
+    rate = upgrade_rates[current_lv]
+    if 1<= current_lv <=10:
         if ran_num < rate["up"]:
             ran_num = "up"
-            weapon_level = weapon_level + 1
+            current_lv = current_lv + 1
         elif rate["up"] <= ran_num < rate["up"] + rate["keep"]:
             ran_num = "keep"
-            weapon_level = weapon_level
+            current_lv = current_lv
         elif rate["up"] + rate["keep"] <= ran_num < rate["up"] + rate["keep"] + rate["down"]:
             ran_num = "down"
-            weapon_level = weapon_level - 1
+            current_lv = current_lv - 1
         else:
             ran_num = "break"
-            weapon_level = 0
-    elif weapon_level == 0:
+            current_lv = 0
+    elif current_lv == 0:
         if ran_num < rate["up"]:
             ran_num = "up"
-            weapon_level = weapon_level + 1
+            current_lv = current_lv + 1
         else :
             ran_num = "keep"
-            weapon_level = weapon_level
+            current_lv = current_lv
 
-    if 0 <= weapon_level <= 9:
+    if 0 <= current_lv <= 9:
         if ran_num == "up":
             print("강화 시도 결과 :", ran_num, "성공!")
         elif ran_num == "keep" :
@@ -51,11 +51,11 @@ def upgrade_weapon(weapon_level):
             print("강화 시도 결과 :", ran_num, "하락")
         else :
             print("강화 시도 결과 :", ran_num, "파괴")
-        print("현재 무기 레벨 :", weapon_level)
+        print("현재 무기 레벨 :", current_lv)
     else :
         print("더 이상 업그레이드가 불가능합니다")
 
-    return weapon_level
+    return current_lv
 
 print("게임에 오신 것을 환영합니다!")
 while True:

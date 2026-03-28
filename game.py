@@ -114,11 +114,39 @@ def show_status():
         print("[드래곤 처치자] 전설의 용사님, 환영합니다!")
     return
 
+gold = 0
+has_stone = False
+has_protection = False
+has_elixir = False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 print("게임에 오신 것을 환영합니다!")
 while True:
-    print("2. 보스 도전")
-    print("1. 무기 강화")
     print("0. 종료하기")
+    print("1. 무기 강화")
+    print("2. 보스 도전")
+    print("3. 무기 수리")
+    print("4. 상점 방문")
+
     choice = input("숫자를 입력하세요 (0을 입력하면 종료):")
     if choice == "0":
         print("게임을 종료합니다.")
@@ -138,7 +166,9 @@ while True:
             if boss_level < 10:
                 if result:
                     boss_level = boss_level + 1
-                    print("보스 처치 성공!")
+                    print(f"보스 [", boss_names[boss_level-1], "] 처치 성공!")
+                    gold = gold + boss_level*100
+                    print(f"현재 골드 :", gold, "Gold")
                 else:
                     boss_level = boss_level
                     print("처참하게 패배했습니다...")
@@ -151,6 +181,21 @@ while True:
                 else:
                     boss_level = boss_level
                     print("처참하게 패배했습니다...")
+    elif choice == 3:
+        print("무기 수리")
+    elif choice == 4:
+        print(f"[상점] 어서오세요! 현재 보유 골드 :", gold, "Gold")
+        print("1. 최고급 숫돌 (500 Gold)")
+        print("2. 강화 보호권 (1500 Gold)")
+        print("3. 용사의 비약 (700 Gold)")
+        buy_items = input("구매하고 싶다면 숫자를 입력하세요:")
+        if buy_items == 1:
+            if gold >=500:
+                has_stone = True
+                gold = gold - 500
+                print(f"[강화 보호권]을 구매했습니다! (남은 골드 :", gold, "Gold)")
+            else:
+                print("골드가 부족합니다! 현재 보유 골드로는 구매할 수 없습니다.")
 
     else:
         print("잘못 입력하셨습니다")

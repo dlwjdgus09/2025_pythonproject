@@ -21,6 +21,8 @@
     # test
 import random
 import time
+from multiprocessing.connection import answer_challenge
+
 
 def updown():
     # random.randrange ( n, m )   n <= result < m
@@ -38,27 +40,61 @@ def updown():
                 print("down")
 
 
+word_array = [
+        {'kr': '사과', 'en': 'apple'},
+        {'kr': '바나나', 'en': 'banana'},
+        {'kr': '포도', 'en': 'grape'},
+        {'kr': '멜론', 'en': 'melon'},
+        {'kr': '레몬', 'en': 'lemon'},
+        {'kr': '수박', 'en': 'watermelon'},
+        {'kr': '복숭아', 'en': 'peach'},
+        {'kr': '연필', 'en': 'pencil'},
+    ]
 
-def quiz():
+def short_answer_quiz():
     print("WELCOME TO QUIZ!")
-    dict = {
-        "apple" : "사과",
-        "banana" : "바나나",
-        "grape" : "포도",
-        "melon" : "멜론",
-        "orange" : "오렌지",
-        "watermelon" : "수박",
-        "peach" : "복숭아",
-        "cherry" : "체리" ,
-        "strawberry" : "딸기",
-        "kiwi" : "키위"
-    }
-    score = 0
-    for i in range(10):
-        quest = random.randrange(0, 10)
-        i = dict[quest]
-        user_input = str(input("다음 단어의 뜻을 쓰세요(", i,") : "))
+    print("주관식 문제")
+    quest = random.randrange(0, len(word_array))
+    word = word_array[quest]
+    print(word['en'])
+    answer = input("뜻은 무엇일까요?")
+    if answer == word['kr']:
+        print("정답!")
+        return True
+    else:
+        print("틀렸습니다... 정답은 :", word['kr'])
+        return False
 
+def choice_answer_quiz():
+    print("WELCOME TO QUIZ!")
+    print("객관식 문제")
+    quest = random.randrange(0, len(word_array))
+    word = word_array[quest]
+
+    choice_correct = quest
+    choice_falses = []
+    while len(choice_falses) <3:
+        choice_false = random.randrange(0, len(word_array))
+        if choice_false == choice_correct:
+            continue
+        if choice_false in choice_falses:
+            continue
+        choice_falses.append(choice_false)
+
+    choices = [choice_correct] + choice_falses
+    random.shuffle(choices)
+
+    print(
+        "1.", choices[0], "\n",
+        "2.", choices[1], "\n",
+        "3.", choices[2], "\n",
+        "4.", choices[3]
+    )
+    answer = input(f"다음 중 {word['en']} 의 뜻으로 가장 적절한 것은?")
+    if answer == choices[choice_correct]:
+        print("정답!")
+    else:
+        print("오답! 정답은 ", choices[choice_correct])
 
 def stop_watch():
     print("WELCOME TO STOPWATCH")
@@ -91,7 +127,7 @@ while True:
         updown()
 
     elif user_input.lower() == "b":
-        quiz()
+        choice_answer_quiz()
     elif user_input.lower() == "c":
         stop_watch()
     elif user_input.lower() == "z":
@@ -100,7 +136,7 @@ while True:
 # random 함수로 값을 초기화하고
 # 사용자가 맞추는 게임
 # result 가 50 인데 사용자가 36을 입력했다면 UP
-# result 가 50인데 사용자가 70을 입력했다면 DOWN
+# result 가 50인데 사용자가 70을 력했다면 DOWN
 # 성공했을때 함수가 종료.
 #
 # * 성공의 기준

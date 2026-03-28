@@ -2,28 +2,28 @@ import random
 
 weapon_level = 0
 upgrade_rates = [
-        #{"up": 80, "keep": 20, "down": 0, "break": 0},
-        #{"up": 70, "keep": 20, "down": 5, "break": 5},
-        #{"up": 60, "keep": 25, "down": 10, "break": 5},
-        #{"up": 55, "keep": 25, "down": 15, "break": 5},
-        #{"up": 45, "keep": 25, "down": 20, "break": 10},
-        #{"up": 40, "keep": 30, "down": 20, "break": 10},
-        #{"up": 35, "keep": 30, "down": 25, "break": 10},
-        #{"up": 30, "keep": 30, "down": 25, "break": 15},
-        #{"up": 20, "keep": 30, "down": 30, "break": 20},
-        #{"up": 15, "keep": 30, "down": 30, "break": 25},
-        #{"up": 0, "keep": 100, "down": 0, "break": 0}
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
-        {"up": 100, "keep": 0, "down": 0, "break": 0},
+        {"up": 80, "keep": 20, "down": 0, "break": 0},
+        {"up": 70, "keep": 20, "down": 5, "break": 5},
+        {"up": 60, "keep": 25, "down": 10, "break": 5},
+        {"up": 55, "keep": 25, "down": 15, "break": 5},
+        {"up": 45, "keep": 25, "down": 20, "break": 10},
+        {"up": 40, "keep": 30, "down": 20, "break": 10},
+        {"up": 35, "keep": 30, "down": 25, "break": 10},
+        {"up": 30, "keep": 30, "down": 25, "break": 15},
+        {"up": 20, "keep": 30, "down": 30, "break": 20},
+        {"up": 15, "keep": 30, "down": 30, "break": 25},
         {"up": 0, "keep": 100, "down": 0, "break": 0}
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 100, "keep": 0, "down": 0, "break": 0},
+        # {"up": 0, "keep": 100, "down": 0, "break": 0}
     ]
 
 def upgrade_weapon(current_lv):
@@ -124,7 +124,11 @@ while True:
         print("게임을 종료합니다.")
         break
     elif choice == "1":
-        weapon_level = upgrade_weapon(weapon_level)
+        if boss_level == 11:
+            print("[드래곤 처치자] 전설의 용사님, 환영합니다!")
+            weapon_level = upgrade_weapon(weapon_level)
+        else:
+            weapon_level = upgrade_weapon(weapon_level)
     elif choice == "2":
         if boss_level == 11:
             print("[드래곤 처치자] 전설의 용사님, 환영합니다!")
